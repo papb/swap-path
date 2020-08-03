@@ -1,6 +1,6 @@
 {
 	"name": "swap-path",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Swap two files or folders.",
 	"license": "MIT",
 	"repository": "papb/swap-path",
