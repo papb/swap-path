@@ -78,6 +78,8 @@ Default: `true`
 
 Whether or not to allow swapping paths across different devices. This is relevant because swapping across devices is much slower, since a copy must be created. If `false` and the two given paths are on different devices, an `EXDEV` error will be thrown.
 
+You should set this to `false` if you are sure you don't want to swap across devices, and prefer an error to be thrown rather than risking a slow operation.
+
 
 ## License
 
