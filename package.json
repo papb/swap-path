@@ -1,0 +1,83 @@
+{
+	"name": "swap-path",
+	"version": "0.0.0",
+	"description": "Swap two files or folders.",
+	"license": "MIT",
+	"repository": "papb/swap-path",
+	"author": {
+		"name": "Pedro Augusto de Paula Barbosa",
+		"email": "papb1996@gmail.com"
+	},
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"build": "del-cli dist && tsc",
+		"prepack": "npm run build",
+		"release": "npm run build && np --no-2fa --no-cleanup",
+		"lint": "tsc --noEmit && xo",
+		"test": "npm run build && ava"
+	},
+	"main": "dist/source",
+	"types": "dist/source",
+	"files": [
+		"dist/source",
+		"!*.map",
+		"!*.test.*"
+	],
+	"keywords": [
+		"swap",
+		"path",
+		"fs",
+		"file",
+		"folder",
+		"directory",
+		"switch",
+		"filesystem",
+		"typescript"
+	],
+	"dependencies": {
+		"fs-jetpack": "^3.1.0"
+	},
+	"devDependencies": {
+		"@ava/typescript": "^1.1.1",
+		"@types/node": "^10.17.28",
+		"ava": "^3.11.0",
+		"del-cli": "^3.0.1",
+		"np": "https://github.com/pixelastic/np/tarball/c3ab2e3b053c7da0ce40a572ca1616273ac080f8",
+		"pkg-dir": "^4.2.0",
+		"source-map-support": "^0.5.19",
+		"tempy": "^0.6.0",
+		"typescript": "~3.9.7",
+		"xo": "^0.32.1"
+	},
+	"ava": {
+		"verbose": true,
+		"require": [
+			"source-map-support/register"
+		],
+		"typescript": {
+			"rewritePaths": {
+				"source/": "dist/source/",
+				"test/": "dist/test/"
+			}
+		}
+	},
+	"xo": {
+		"rules": {
+			"@typescript-eslint/prefer-readonly-parameter-types": "off",
+			"@typescript-eslint/class-literal-property-style": "off",
+			"unicorn/prevent-abbreviations": "off",
+			"unicorn/no-for-loop": "off",
+			"ava/no-import-test-files": "off",
+			"linebreak-style": [
+				"error",
+				"unix"
+			],
+			"object-curly-spacing": [
+				"error",
+				"always"
+			]
+		}
+	}
+}
